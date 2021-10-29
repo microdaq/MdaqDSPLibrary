@@ -18,17 +18,17 @@
 extern "C" {
 #endif
 
-/* AO channel IDs */
+/* CAN channel IDs */
 enum mdaq_can_ids
 {
-    CAN1 = (1 << 0),
-    CAN2 = (1 << 1),
-    CAN3 = (1 << 2),
-    CAN4 = (1 << 3),
-    CAN5 = (1 << 4),
-    CAN6 = (1 << 5),
-    CAN7 = (1 << 6),
-    CAN8 = (1 << 7),
+    CAN1,
+    CAN2,
+    CAN3,
+    CAN4,
+    CAN5,
+    CAN6,
+    CAN7,
+    CAN8
 };
 
 #define RXFIFO0     (0u)
@@ -288,7 +288,7 @@ typedef struct
 /**
  * @brief CAN message header
  */
-typedef struct
+typedef struct __attribute__((__packed__))
 {
     //! @brief CAN ID received
     uint32_t ID : 29;
@@ -329,7 +329,7 @@ typedef struct
 /**
  * @brief CAN message header for transmitted messages
  */
-typedef struct
+typedef struct __attribute__((__packed__))
 {
    //! @brief CAN ID to send
     uint32_t ID : 29;

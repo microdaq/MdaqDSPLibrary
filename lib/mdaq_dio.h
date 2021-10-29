@@ -78,6 +78,8 @@ enum mdaq_dio_func_ids
 	AO_CLK_FUNC,
 	UART_TX_FUNC,
     UART_RX_FUNC,
+    HS_DO_FUNC,
+    HS_DI_FUNC,
 };
 
 enum mdaq_bank_dir_ids
