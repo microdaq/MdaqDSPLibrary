@@ -1,6 +1,6 @@
 /* mdaq_dio.h -- DIO driver for MicroDAQ device
  *
- * Copyright (C) 2013-2020 Embedded Solutions
+ * Copyright (C) 2013-2021 Embedded Solutions
  * All rights reserved.
  *
  * This software may be modified and distributed under the terms
@@ -12,15 +12,16 @@
 
 #include <stdint.h>
 
+#define DIO_ERROR           (0xff)
 #define DIO_STATE_LOW       (0)
 #define DIO_STATE_HIGH      (1)
-#define DIO_STATE_UNKNOWN   (2)
 
 #define DIO_DIR_OUTPUT      (0)
 #define DIO_DIR_INPUT       (1)
 
 #define DIO_FUNC_SET        (0)
 #define DIO_FUNC_UNSET      (1)
+
 /* DIO channels */
 enum mdaq_dio_ids
 {
@@ -88,14 +89,14 @@ enum mdaq_bank_dir_ids
     DIO_INPUT = 1
 };
 
-void mdaq_dio_init( void);
+uint8_t mdaq_dio_init( void);
 uint8_t mdaq_dio_is_initialized(void);
-void mdaq_dio_dir( uint8_t dio, uint8_t dir);
-void mdaq_bank_dir( uint8_t bank, uint8_t dir);
+uint8_t mdaq_dio_dir( uint8_t dio, uint8_t dir);
+uint8_t mdaq_bank_dir( uint8_t bank, uint8_t dir);
 
-void mdaq_dio_write( uint8_t dio, uint8_t value);
+uint8_t mdaq_dio_write( uint8_t dio, uint8_t value);
 uint8_t mdaq_dio_read( uint8_t dio);
 
-int mdaq_dio_func( uint8_t dio, uint8_t function);
+uint8_t mdaq_dio_func( uint8_t dio, uint8_t function);
 
 #endif /* MDAQ_DIO_ */ 
